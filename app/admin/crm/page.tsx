@@ -63,7 +63,7 @@ export default function CRMPage() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold">Customer Management</h1>
+      <h1 className="text-2xl font-bold mt-8">Customer Management</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-white p-4 rounded-lg shadow">
         <div>

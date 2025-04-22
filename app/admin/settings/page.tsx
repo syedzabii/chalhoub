@@ -55,7 +55,7 @@ export default function AdminSettings() {
       name: form.storeName.value,
       location: form.storeLocation.value,
       whatsappNumber: form.whatsappNumber.value,
-      assignedAgents: Array.from(form.assignedAgents.selectedOptions).map(opt => opt.value)
+      assignedAgents: (Array.from(form.assignedAgents.selectedOptions) as HTMLOptionElement[]).map(opt => opt.value)
     };
     setStores([...stores, newStore]);
     form.reset();
@@ -71,7 +71,7 @@ export default function AdminSettings() {
       name: form.storeName.value,
       location: form.storeLocation.value,
       whatsappNumber: form.whatsappNumber.value,
-      assignedAgents: Array.from(form.assignedAgents.selectedOptions).map(opt => opt.value)
+      assignedAgents: (Array.from(form.assignedAgents.selectedOptions) as HTMLOptionElement[]).map(opt => opt.value)
     };
     
     setStores(stores.map(store => store.id === updatedStore.id ? updatedStore : store));
