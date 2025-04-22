@@ -117,25 +117,25 @@ export default function AdminSettings() {
   };
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Admin Settings</h1>
+    <div className="p-6 max-w-6xl mx-auto">
+      <h1 className="text-2xl font-bold mb-6 text-gray-800">Admin Settings</h1>
       
       {/* Navigation Tabs */}
       <div className="flex border-b mb-6">
         <button
-          className={`px-4 py-2 font-medium ${activeTab === 'stores' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500'}`}
+          className={`px-4 py-2 font-medium ${activeTab === 'stores' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-700'}`}
           onClick={() => setActiveTab('stores')}
         >
           Stores
         </button>
         <button
-          className={`px-4 py-2 font-medium ${activeTab === 'agents' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500'}`}
+          className={`px-4 py-2 font-medium ${activeTab === 'agents' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-700'}`}
           onClick={() => setActiveTab('agents')}
         >
           Sales Agents
         </button>
         <button
-          className={`px-4 py-2 font-medium ${activeTab === 'whatsapp' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500'}`}
+          className={`px-4 py-2 font-medium ${activeTab === 'whatsapp' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-700'}`}
           onClick={() => setActiveTab('whatsapp')}
         >
           WhatsApp Numbers
@@ -146,69 +146,66 @@ export default function AdminSettings() {
       {activeTab === 'stores' && (
         <div className="space-y-6">
           <div>
-            <h2 className="text-xl font-semibold mb-4">Manage Stores</h2>
+            <h2 className="text-xl font-semibold mb-4 text-gray-800">Manage Stores</h2>
             
             {/* Add/Edit Store Form */}
             <div className="bg-gray-50 p-4 rounded-lg mb-6">
-              <h3 className="font-medium mb-3 text-black">{editingStore ? 'Edit Store' : 'Add New Store'}</h3>
+              <h3 className="font-medium mb-3 text-gray-800">{editingStore ? 'Edit Store' : 'Add New Store'}</h3>
               <form onSubmit={editingStore ? handleUpdateStore : handleAddStore} className="space-y-3">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Store Name</label>
+                  <label className="block text-sm font-medium text-gray-800 mb-1">Store Name</label>
                   <input
                     type="text"
                     name="storeName"
                     defaultValue={editingStore?.name || ''}
-                    className="w-full p-2 border rounded"
+                    className="w-full p-2 border rounded text-gray-800"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                  <label className="block text-sm font-medium text-gray-800 mb-1">Location</label>
                   <input
                     type="text"
                     name="storeLocation"
                     defaultValue={editingStore?.location || ''}
-                    className="w-full p-2 border rounded"
+                    className="w-full p-2 border rounded text-gray-800"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">WhatsApp Number</label>
+                  <label className="block text-sm font-medium text-gray-800 mb-1">WhatsApp Number</label>
                   <input
                     type="tel"
                     name="whatsappNumber"
                     defaultValue={editingStore?.whatsappNumber || ''}
-                    className="w-full p-2 border rounded"
+                    className="w-full p-2 border rounded text-gray-800"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Assigned Agents</label>
+                  <label className="block text-sm font-medium text-gray-800 mb-1">Assigned Agents</label>
                   <select
                     name="assignedAgents"
                     multiple
                     defaultValue={editingStore?.assignedAgents || []}
-                    className="w-full p-2 border rounded min-h-[100px] text-black"
+                    className="w-full p-2 border rounded min-h-[100px] text-gray-800"
                   >
                     {agents.map(agent => (
-                      <option key={agent.id} value={agent.id}>
+                      <option key={agent.id} value={agent.id} className="text-gray-800">
                         {agent.name}
                       </option>
                     ))}
                   </select>
                 </div>
                 <div className="flex space-x-2">
-                  <button
-                    type="submit"
-                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-                  >
+                  <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
                     {editingStore ? 'Update Store' : 'Add Store'}
                   </button>
                   {editingStore && (
-                    <button
-                      type="button"
+                    <button 
+                      type="button" 
                       onClick={() => setEditingStore(null)}
-                      className="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400"
+                      className="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300"
                     >
                       Cancel
                     </button>
@@ -272,39 +269,39 @@ export default function AdminSettings() {
       {activeTab === 'agents' && (
         <div className="space-y-6">
           <div>
-            <h2 className="text-xl font-semibold mb-4">Manage Sales Agents</h2>
+            <h2 className="text-xl font-semibold mb-4 text-gray-800">Manage Sales Agents</h2>
             
             {/* Add/Edit Agent Form */}
             <div className="bg-gray-50 p-4 rounded-lg mb-6">
-              <h3 className="font-medium mb-3 text-black">{editingAgent ? 'Edit Agent' : 'Add New Agent'}</h3>
+              <h3 className="font-medium mb-3 text-gray-800">{editingAgent ? 'Edit Agent' : 'Add New Agent'}</h3>
               <form onSubmit={editingAgent ? handleUpdateAgent : handleAddAgent} className="space-y-3">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                  <label className="block text-sm font-medium text-gray-800 mb-1">Name</label>
                   <input
                     type="text"
                     name="agentName"
                     defaultValue={editingAgent?.name || ''}
-                    className="w-full p-2 border rounded"
+                    className="w-full p-2 border rounded text-gray-800"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                  <label className="block text-sm font-medium text-gray-800 mb-1">Email</label>
                   <input
                     type="email"
                     name="agentEmail"
                     defaultValue={editingAgent?.email || ''}
-                    className="w-full p-2 border rounded"
+                    className="w-full p-2 border rounded text-gray-800"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                  <label className="block text-sm font-medium text-gray-800 mb-1">Phone</label>
                   <input
                     type="tel"
                     name="agentPhone"
                     defaultValue={editingAgent?.phone || ''}
-                    className="w-full p-2 border rounded"
+                    className="w-full p-2 border rounded text-gray-800"
                     required
                   />
                 </div>
@@ -319,7 +316,7 @@ export default function AdminSettings() {
                     <button
                       type="button"
                       onClick={() => setEditingAgent(null)}
-                      className="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400"
+                      className="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300"
                     >
                       Cancel
                     </button>
@@ -372,18 +369,18 @@ export default function AdminSettings() {
       {activeTab === 'whatsapp' && (
         <div className="space-y-6">
           <div>
-            <h2 className="text-xl font-semibold mb-4">WhatsApp Numbers</h2>
+            <h2 className="text-xl font-semibold mb-4 text-gray-800">WhatsApp Numbers</h2>
             
             {/* Add WhatsApp Number */}
             <div className="bg-gray-50 p-4 rounded-lg mb-6">
-              <h3 className="font-medium mb-3 text-black">Add WhatsApp Number</h3>
+              <h3 className="font-medium mb-3 text-gray-800">Add WhatsApp Number</h3>
               <div className="flex space-x-2">
                 <input
                   type="tel"
                   value={newWhatsappNumber}
                   onChange={(e) => setNewWhatsappNumber(e.target.value)}
                   placeholder="+1234567890"
-                  className="flex-1 p-2 border rounded"
+                  className="flex-1 p-2 border rounded text-gray-800"
                 />
                 <button
                   type="button"
